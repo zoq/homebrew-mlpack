@@ -30,7 +30,6 @@ class Mlpack < Formula
   # Documentation dependencies.
   depends_on "graphviz"
   depends_on "doxygen"
-  depends_on "txt2man"
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
