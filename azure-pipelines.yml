@@ -27,6 +27,7 @@ jobs:
   - bash: |
       python -m pip install --upgrade pip
       pip install cython numpy
+      brew uninstall python
       brew install --verbose Formula/mlpack.rb
     displayName: build mlpack
 
