@@ -13,4 +13,8 @@ jobs:
         brew test --verbose Formula/ensmallen.rb
       displayName: test ensmallen
 
+    - bash: |
+        brew install --verbose Formula/mlpack.rb
+      displayName: build mlpack 
+
 
