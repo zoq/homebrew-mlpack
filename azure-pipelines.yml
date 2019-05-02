@@ -20,11 +20,11 @@ jobs:
       python -V
       which python
       brew install --verbose Formula/ensmallen.rb
-    displayName: build ensmallen
+    displayName: build ensmallen formula
 
   - bash: |
       brew test --verbose Formula/ensmallen.rb
-    displayName: test ensmallen
+    displayName: test ensmallen formula
 
   - bash: |
       python -m pip install --upgrade pip
@@ -32,6 +32,10 @@ jobs:
       curl https://kurg.org/misc/brew_mod.py -o brew_mod.py
       python brew_mod.py
       brew install --verbose Formula/mlpack.rb
-    displayName: build mlpack
+    displayName: build mlpack formula
+
+  - bash: |
+      brew test --verbose Formula/mlpack.rb
+    displayName: test mlpack formula
 
 
