@@ -27,6 +27,14 @@ jobs:
     displayName: test ensmallen formula
 
   - bash: |
+      brew install --verbose Formula/ensmallen-nightly.rb
+    displayName: build ensmallen-nightly formula
+
+  - bash: |
+      brew test --verbose Formula/ensmallen-nightly.rb
+    displayName: test ensmallen-nightly formula
+
+  - bash: |
       python -m pip install --upgrade pip
       pip install cython numpy pandas
       curl https://kurg.org/misc/brew_mod.py -o brew_mod.py
