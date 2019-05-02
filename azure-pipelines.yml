@@ -46,4 +46,10 @@ jobs:
       brew test --verbose Formula/mlpack.rb
     displayName: test mlpack formula
 
+  - bash: |
+      brew install --verbose Formula/mlpack-nightly.rb
+    displayName: build mlpack-nightly formula
 
+  - bash: |
+      brew test --verbose Formula/mlpack-nightly.rb
+    displayName: test mlpack-nightly formula
