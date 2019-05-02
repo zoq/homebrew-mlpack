@@ -17,6 +17,8 @@ jobs:
   - bash: |
       set -e
       sudo xcode-select --switch /Applications/Xcode_10.1.app/Contents/Developer
+      python -V
+      which python
       brew install --verbose Formula/ensmallen.rb
     displayName: build ensmallen
 
