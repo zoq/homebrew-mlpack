@@ -24,6 +24,7 @@ jobs:
 
   - bash: |
       brew test --verbose Formula/ensmallen.rb
+      brew remove ensmallen
     displayName: test ensmallen formula
 
   - bash: |
@@ -32,6 +33,7 @@ jobs:
 
   - bash: |
       brew test --verbose Formula/ensmallen-nightly.rb
+      brew remove ensmallen-nightly
     displayName: test ensmallen-nightly formula
 
   - bash: |
@@ -44,6 +46,7 @@ jobs:
 
   - bash: |
       brew test --verbose Formula/mlpack.rb
+      brew remove mlpack
     displayName: test mlpack formula
 
   - bash: |
@@ -52,4 +55,5 @@ jobs:
 
   - bash: |
       brew test --verbose Formula/mlpack-nightly.rb
+      brew remove mlpack-nightly
     displayName: test mlpack-nightly formula
