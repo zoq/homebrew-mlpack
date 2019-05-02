@@ -6,7 +6,11 @@ jobs:
     - bash: |
         set -e
         sudo xcode-select --switch /Applications/Xcode_10.1.app/Contents/Developer
-        brew install --verbose --debug Formula/ensmallen.rb 
-      displayName: build ensmallen 
+        brew install --verbose Formula/ensmallen.rb
+      displayName: build ensmallen
+
+    - bash: |
+        brew test --verbose Formula/ensmallen.rb
+      displayName: test ensmallen
 
 
