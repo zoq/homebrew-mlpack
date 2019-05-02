@@ -1,0 +1,12 @@
+jobs:
+- job: macOS
+  pool:
+    vmImage: macOS-10.13
+  steps:
+    - bash: |
+        set -e
+        sudo xcode-select --switch /Applications/Xcode_10.1.app/Contents/Developer
+        brew install --verbose --debug Formula/ensmallen.rb 
+      displayName: build ensmallen 
+
+
