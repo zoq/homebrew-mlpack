@@ -28,7 +28,7 @@ jobs:
 
   - bash: |
       python -m pip install --upgrade pip
-      pip install cython numpy
+      pip install cython numpy pandas
       curl https://kurg.org/misc/brew_mod.py -o brew_mod.py
       python brew_mod.py
       brew install --verbose Formula/mlpack.rb
