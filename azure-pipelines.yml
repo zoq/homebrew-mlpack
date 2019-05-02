@@ -28,10 +28,9 @@ jobs:
 
   - bash: |
       python -m pip install --upgrade pip
-      pip install cython numpy 
-      export PYTHON_EXECUTABLE=$(which python)
-      sed -i '' '43i\
-          cmake_args << "-DPYTHON_EXECUTABLE=#{ENV.python_executable}"' Formula/mlpack.rb
+      pip install cython numpy
+      curl https://kurg.org/misc/brew_mod.py -o brew_mod.py
+      python brew_mod.py
       brew install --verbose Formula/mlpack.rb
     displayName: build mlpack
 
