@@ -29,7 +29,8 @@ jobs:
   - bash: |
       python -m pip install --upgrade pip
       pip install cython numpy
-      brew uninstall python
+      sed -i '' '43i\
+          cmake_args << "-DPYTHON_EXECUTABLE=$(which python)"' Formula/mlpack.rb
       brew install --verbose Formula/mlpack.rb
     displayName: build mlpack
 
