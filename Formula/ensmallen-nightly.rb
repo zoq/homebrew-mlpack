@@ -1,8 +1,8 @@
 class EnsmallenNightly < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://kurg.org/data/ensmallen-a3e9ab6.1.tar.gz"
-  sha256 "de72fe7609140f3810e5e82007a7bb4008cc952a685a98d3b9b233be581ac5c9"
+  url "https://kurg.org/data/ensmallen-222ce84.1.tar.gz"
+  sha256 "6d2b41739980c05ab93b4e30b1a77b77807c0d5002b180c48b4812d2ad5b7a07"
 
   depends_on "cmake" => :build
   depends_on "armadillo"
