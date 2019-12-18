@@ -5,26 +5,14 @@ class Mlpack < Formula
   url "https://mlpack.org/files/mlpack-3.2.2.tar.gz"
   sha256 "7aef8c27645c9358262fec9ebba380720a086789d6519d5d1034346412a52ad6"
 
-  option "with-debug", "Compile with debug options"
-  option "with-profile", "Compile with profile options"
-  option "with-arma-extra-debug", "Compile with extra Armadillo debugging symbols"
-  option "with-test-verbose", "Run test cases with verbose output"
-  option "with-build-tests", "Build tests"
-  option "with-build-cli-executables", "Build command-line executables"
-  option "with-build-python-bindings", "Build Python bindings"
-
-  # Build dependencies.
   depends_on "cmake" => :build
-  depends_on "pkg-config"
   depends_on "armadillo"
   depends_on "boost"
-
-  # Documentation dependencies.
-  depends_on "graphviz"
   depends_on "doxygen"
+  depends_on "graphviz"
+  depends_on "pkg-config"
 
   def install
-    dylib = OS.mac? ? "dylib" : "so"
     cmake_args = std_cmake_args
     cmake_args << "-DDEBUG=" + (build.with?("debug") ? "ON" : "OFF")
     cmake_args << "-DPROFILE=" + (build.with?("profile") ? "ON" : "OFF")
@@ -61,7 +49,7 @@ class Mlpack < Formula
         Log::Info << "Some test informational output." << std::endl;
         Log::Warn << "A false alarm!" << std::endl;
       }
-      EOS
+    EOS
     cxx_with_flags = ENV.cxx.split + ["test.cpp",
                                       "-std=c++11",
                                       "-I#{include}",
