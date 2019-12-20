@@ -1,24 +1,25 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
-  homepage "http://www.mlpack.org"
-  # doi "arXiv:1210.6293"
+  homepage "https://www.mlpack.org"
   url "https://mlpack.org/files/mlpack-3.2.2.tar.gz"
   sha256 "7aef8c27645c9358262fec9ebba380720a086789d6519d5d1034346412a52ad6"
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
+  depends_on "pkg-config" => :build
   depends_on "armadillo"
   depends_on "boost"
-  depends_on "doxygen"
+  depends_on "ensmallen"
   depends_on "graphviz"
-  depends_on "pkg-config"
 
   def install
     cmake_args = std_cmake_args
-    cmake_args << "-DDEBUG=" + (build.with?("debug") ? "ON" : "OFF")
-    cmake_args << "-DPROFILE=" + (build.with?("profile") ? "ON" : "OFF")
-    cmake_args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
+    cmake_args << "-DDEBUG=OFF"
+    cmake_args << "-DPROFILE=OFF"
+    cmake_args << "-DDOWNLOAD_STB_IMAGE=OFF"
     cmake_args << "-DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}"
-    cmake_args << "-DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.#{dylib}"
+    cmake_args << "-DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}"
+    cmake_args << "-DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.dylib"
     cmake_args << "-DCMAKE_CXX_FLAGS=-fext-numeric-literals" unless ENV.compiler == :clang
 
     mkdir "build" do
