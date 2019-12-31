@@ -12,21 +12,28 @@ class Mlpack < Formula
   depends_on "ensmallen"
   depends_on "graphviz"
 
-  def install
-    cmake_args = std_cmake_args
-    cmake_args << "-DDEBUG=OFF"
-    cmake_args << "-DPROFILE=OFF"
-    cmake_args << "-DDOWNLOAD_STB_IMAGE=OFF"
-    cmake_args << "-DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}"
-    cmake_args << "-DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}"
-    cmake_args << "-DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.dylib"
-    cmake_args << "-DCMAKE_CXX_FLAGS=-fext-numeric-literals" unless ENV.compiler == :clang
+  resource "stb" do
+    url "https://github.com/nothings/stb/archive/f67165c2bb2af3060ecae7d20d6f731173485ad0.tar.gz"
+    sha256 "ad5d34b385494cf68c52fad5762d00181c0c6d4787988fc75f17295c3c726bf8"
+  end
 
+  def install
+    resource("stb").stage do
+      (include/"stb").install Dir["*.h"]
+    end
+    cmake_args = std_cmake_args + %W[
+      -DDEBUG=OFF
+      -DPROFILE=OFF
+      -DDOWNLOAD_STB_IMAGE=OFF
+      -DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}
+      -DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}
+      -DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.dylib
+      -DSTB_IMAGE_INCLUDE_DIR=#{(include/"stb")}
+    ]
     mkdir "build" do
       system "cmake", "..", *cmake_args
       system "make", "install"
     end
-
     doc.install Dir["doc/*"]
     pkgshare.install "src/mlpack/tests" # Includes test data.
   end
