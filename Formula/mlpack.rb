@@ -2,8 +2,8 @@ class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  url "https://mlpack.org/files/mlpack-3.3.2.tar.gz"
-  sha256 "11904a39a7e34ee66028292fd054afb460eacd07ec5e6c63789aba117e4d854c"
+  url "https://mlpack.org/files/mlpack-3.4.0.tar.gz"
+  sha256 "c92fa1c986683dac2f51064abc54ecc0be0e7ee645d490106bebcc368b3446cf"
 
   option "with-debug", "Compile with debug options"
   option "with-profile", "Compile with profile options"
