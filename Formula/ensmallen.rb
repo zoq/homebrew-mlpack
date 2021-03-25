@@ -1,8 +1,8 @@
 class Ensmallen < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://ensmallen.org/files/ensmallen-2.16.1.tar.gz"
-  sha256 "e496c207c20816150a535f891172357f3c136ad8e73cbbc01a77112eb38b0c9a"
+  url "https://ensmallen.org/files/ensmallen-2.16.2.tar.gz"
+  sha256 "dac86b22be33ffcb083013dee5023d6653b8e06bc325dff05fd43a0ccbf0ade5"
 
   depends_on "cmake" => :build
   depends_on "armadillo"
