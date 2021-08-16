@@ -2,8 +2,8 @@ class MlpackNightly < Formula
   desc "Scalable C++ machine learning library"
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  url "https://kurg.org/data/mlpack-3f82130.1.tar.gz"
-  sha256 "bfd23040813be08f22c8f495e70feab1bc816a82a786d0198c18a6cb1e7e4924"
+  url "https://kurg.org/data/mlpack-499f9d8.1.tar.gz"
+  sha256 "1993e0f6d2ab174b66ddf258aac850f40e330e4552526c0ff2cf9f8a93e1516d"
 
   option "with-debug", "Compile with debug options"
   option "with-profile", "Compile with profile options"
